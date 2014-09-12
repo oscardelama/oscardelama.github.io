@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
+  <title>Github-jekyll - My Octopress Blog</title>
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="Inaugural Post Testing if the whole publishing pipeline works as expected.
-">
+  <meta name="description" content="Github-jekyll Sep 11th, 2014 1:21 pm How to build a new page The parameter indicates the name of the folder where the new page will be created. Th &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoursite.com">
+  <link rel="canonical" href="http://yoursite.com/learning/github-jekyll">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
@@ -64,46 +63,61 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article role="article">
   
-  
-  
-    <article>
-      
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/11/first-inaugural-post/">First Inaugural Post</a></h1>
-    
-    
+    <h1 class="entry-title">Github-jekyll</h1>
+    <p class="meta">
+
+
+
+
+<time class='entry-date' datetime='2014-09-11T13:21:00-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>1:21 pm</span></time></p>
+  </header>
+  
+  <h1>How to build a new page</h1>
+
+<p>The parameter indicates the name of the folder where the new page will be created. Th page will have as name &ldquo;index&rdquo; and as name extension whatever is specified in the rake file, by default it is &ldquo;.markdown&rdquo;.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_page["Course/R-Programming"]
+</span><span class='line'>## Set the codepage to 65001 for Windows machines
+</span><span class='line'>mkdir -p source/course/r-programming
+</span><span class='line'>Creating new page: source/course/r-programming/index.mdwn</span></code></pre></td></tr></table></div></figure>
+
+
+  
+    <footer>
       <p class="meta">
         
+        
 
 
 
 
-<time class='entry-date' datetime='2014-09-11T19:15:12-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>7:15 pm</span></time>
+<time class='entry-date' datetime='2014-09-11T13:21:00-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>1:21 pm</span></time>
         
       </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h1>Inaugural Post</h1>
-
-<p>Testing if the whole publishing pipeline works as expected.</p>
+      
+        <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoursite.com/learning/github-jekyll/index.html" data-via="" data-counturl="http://yoursite.com/learning/github-jekyll/index.html" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
-
-    </article>
+      
+    </footer>
   
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+</article>
+
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -123,6 +137,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

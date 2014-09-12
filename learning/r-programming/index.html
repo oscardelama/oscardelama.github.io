@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>R-programming - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="R-programming Sep 12th, 2014 11:30 am R Programming, Lecture notes Overview and History of R Basically R is a dialect of S. Recommended Books:
+* &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yoursite.com/learning/r-programming">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:yoursite.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">R-programming</h1>
+    <p class="meta">
+
+
+
+
+<time class='entry-date' datetime='2014-09-12T11:30:00-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>11:30 am</span></time></p>
+  </header>
+  
+  <h1>R Programming, Lecture notes</h1>
+
+<h2>Overview and History of R</h2>
+
+<p>Basically R is a dialect of S.</p>
+
+<p>Recommended Books:
+* Statistical Models in S. John M. Chambers.
+* Software for Data Analysis, Programming with R. John M. Chambers.</p>
+
+<h2>Getting Help</h2>
+
+<p>In R:</p>
+
+<p>´´´R
+?subject
+&#8220;`</p>
+
+<h2>Vector</h2>
+
+<p>The best basic object in R is what&rsquo;s called a vector, and a vector contains multiple copies of, for example, <strong>of a single type of object</strong>.</p>
+
+<p>We can build a vector with c() and listing its members.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Basic vector construction</span>
+vec <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>
+
+<span class="c1"># Object class</span>
+<span class="c1"># A vector is atomic: it contains a collection of elements of one type</span>
+<span class="o">&gt;</span> <span class="kp">class</span><span class="p">(</span>vec<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;numeric&quot;</span>
+  
+<span class="c1"># Object structure summary</span>
+<span class="o">&gt;</span> str<span class="p">(</span>vec<span class="p">)</span>
+ atomic <span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span> <span class="m">2</span> <span class="m">5</span> <span class="m">8</span>
+ <span class="o">-</span> <span class="kp">attr</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s">&quot;comment&quot;</span><span class="p">)</span><span class="o">=</span> chr <span class="s">&quot;A dummy sample&quot;</span>
+
+ <span class="c1"># Object length</span>
+ <span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>vec<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span>
+
+<span class="c1"># We can freely attach a comment to the object</span>
+<span class="o">&gt;</span> <span class="kp">comment</span><span class="p">(</span>vec<span class="p">)</span> 
+  <span class="kc">NULL</span>
+<span class="o">&gt;</span> <span class="kp">comment</span><span class="p">(</span>vec<span class="p">)</span> <span class="o">&lt;-</span> <span class="s">&quot;A dummy sample&quot;</span> 
+<span class="o">&gt;</span> <span class="kp">comment</span><span class="p">(</span>vec<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;A dummy sample&quot;</span>
+
+<span class="c1"># Names of the vector elements</span>
+<span class="o">&gt;</span> <span class="kp">names</span><span class="p">(</span>vec<span class="p">)</span>
+  <span class="kc">NULL</span>
+<span class="o">&gt;</span> <span class="kp">names</span><span class="p">(</span>vec<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">,</span> <span class="s">&quot;five&quot;</span><span class="p">,</span> <span class="s">&quot;eight&quot;</span><span class="p">)</span>
+vec
+  two  five eight 
+    <span class="m">2</span>     <span class="m">5</span>     <span class="m">8</span> 
+<span class="c1"># We can use those names to select vector elements</span>
+<span class="o">&gt;</span> vec<span class="p">[</span><span class="s">&quot;five&quot;</span><span class="p">]</span>
+five 
+   <span class="m">5</span> 
+<span class="c1">#However, it is still a vector</span>
+<span class="o">&gt;</span> <span class="kp">class</span><span class="p">(</span>vec<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;numeric&quot;</span>
+
+<span class="c1"># Object dimensions. </span>
+<span class="c1"># The vector is &quot;dimensionless&quot;,  a matrix, array or data frame are not.</span>
+<span class="o">&gt;</span> <span class="kp">dim</span><span class="p">(</span>vec<span class="p">)</span> 
+  <span class="kc">NULL</span>
+<span class="c1"># There is name for each dimension</span>
+<span class="o">&gt;</span> <span class="kp">dimnames</span><span class="p">(</span>vec<span class="p">)</span> 
+  <span class="kc">NULL</span></code></pre></div>
+
+
+<h3>Handling Vector Content</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Append elements</span>
+<span class="o">&gt;</span> vec <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>
+<span class="o">&gt;</span> vec
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2</span> <span class="m">5</span> <span class="m">8</span>
+<span class="o">&gt;</span> vec_ext <span class="o">&lt;-</span> <span class="kp">append</span><span class="p">(</span>vec<span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="m">98</span><span class="p">,</span> <span class="m">99</span><span class="p">))</span>
+<span class="o">&gt;</span> vec_ext
+<span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">2</span>  <span class="m">5</span>  <span class="m">8</span> <span class="m">98</span> <span class="m">99</span>
+
+<span class="c1"># Insert new element at any position</span>
+<span class="o">&gt;</span> vec_mod <span class="o">&lt;-</span> <span class="kp">append</span><span class="p">(</span>vec<span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="m">98</span><span class="p">,</span><span class="m">99</span><span class="p">),</span> after<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="o">&gt;</span> vec_mod
+<span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">2</span>  <span class="m">5</span> <span class="m">98</span> <span class="m">99</span>  <span class="m">8</span>
+
+<span class="c1"># Build a vector from other vectors</span>
+<span class="c1"># e.g. prefix and suffix a vector</span>
+<span class="o">&gt;</span> vec2 <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">80</span><span class="p">,</span><span class="m">81</span><span class="p">),</span> vec<span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="m">98</span><span class="p">,</span><span class="m">99</span><span class="p">))</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">80</span> <span class="m">81</span>  <span class="m">2</span>  <span class="m">5</span>  <span class="m">8</span> <span class="m">98</span> <span class="m">99</span></code></pre></div>
+
+
+<h3>Type Coercion (Type Casting)</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># We can cast a vector with one type of content to another one</span>
+vec <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>
+
+<span class="c1"># As character elements</span>
+vec_tect <span class="o">&lt;-</span> as.characer<span class="p">(</span>vec<span class="p">)</span>
+vec_tect <span class="o">&lt;-</span> <span class="kp">as.character</span><span class="p">(</span>vec<span class="p">)</span>
+vec_tect
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;2&quot;</span> <span class="s">&quot;5&quot;</span> <span class="s">&quot;8&quot;</span>
+
+<span class="c1"># As logical elements</span>
+<span class="c1"># Zero is FALSE, otherwise is TRUE</span>
+vec_log <span class="o">&lt;-</span> <span class="kp">as.logical</span><span class="p">(</span>vec<span class="p">)</span>
+vec_log
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">TRUE</span> <span class="kc">TRUE</span> <span class="kc">TRUE</span></code></pre></div>
+
+
+<h2>Matrix</h2>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Basic matrix construction</span>
+<span class="o">&gt;</span> mtx <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span> nrow<span class="o">=</span><span class="m">2</span><span class="p">,</span> ncol<span class="o">=</span><span class="m">3</span><span class="p">)</span>
+
+<span class="c1"># Notice how the values are assigned column-wise.</span>
+<span class="c1"># As a vector, all the matrix elements are of the same type.</span>
+<span class="c1"># We can think of the matrix as a vector segmented in columns</span>
+<span class="o">&gt;</span> mtx
+     <span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="p">[,</span><span class="m">2</span><span class="p">]</span> <span class="p">[,</span><span class="m">3</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">,]</span>    <span class="m">1</span>    <span class="m">3</span>    <span class="m">5</span>
+<span class="p">[</span><span class="m">2</span><span class="p">,]</span>    <span class="m">2</span>    <span class="m">4</span>    <span class="m">6</span>
+
+<span class="c1"># Object class</span>
+<span class="o">&gt;</span> <span class="kp">class</span><span class="p">(</span>mtx<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;matrix&quot;</span>
+
+<span class="c1"># Object length</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>mtx<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">6</span>
+
+<span class="c1"># Number of columns and rows</span>
+<span class="o">&gt;</span> <span class="kp">nrow</span><span class="p">(</span>mtx<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2</span>
+<span class="o">&gt;</span> <span class="kp">ncol</span><span class="p">(</span>mtx<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span>
+
+<span class="c1"># Object structure summary</span>
+<span class="o">&gt;</span> str<span class="p">(</span>mtx<span class="p">)</span>
+ int <span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span>
+ 
+<span class="c1"># Object dimensions. </span>
+<span class="o">&gt;</span> <span class="kp">dim</span><span class="p">(</span>mtx<span class="p">)</span> 
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2</span> <span class="m">3</span>
+
+<span class="c1"># Names of each object dimension</span>
+<span class="o">&gt;</span> <span class="kp">dimnames</span><span class="p">(</span>mtx<span class="p">)</span>
+<span class="kc">NULL</span></code></pre></div>
+
+
+<h3>Handling Matrix Content</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># cbind and rbind are more powerful way to build a matrix</span>
+<span class="c1"># Each parameter in the call becomes a column of</span>
+<span class="c1"># the resulting matrix. </span>
+<span class="c1"># The smaller parameters (with smaller count of elements) </span>
+<span class="c1"># are recycled, so they have to be a sub-multiple of </span>
+<span class="c1"># the largest one. Otherwise you will get a warning message.</span>
+<span class="o">&gt;</span> mtx <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span>seq<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span> quarter<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> bin<span class="o">=</span><span class="m">0</span><span class="o">:</span><span class="m">1</span><span class="p">)</span>
+<span class="o">&gt;</span> mtx
+     seq quarter bin
+<span class="p">[</span><span class="m">1</span><span class="p">,]</span>   <span class="m">1</span>       <span class="m">1</span>   <span class="m">0</span>
+<span class="p">[</span><span class="m">2</span><span class="p">,]</span>   <span class="m">2</span>       <span class="m">2</span>   <span class="m">1</span>
+<span class="p">[</span><span class="m">3</span><span class="p">,]</span>   <span class="m">3</span>       <span class="m">3</span>   <span class="m">0</span>
+<span class="p">[</span><span class="m">4</span><span class="p">,]</span>   <span class="m">4</span>       <span class="m">4</span>   <span class="m">1</span>
+<span class="p">[</span><span class="m">5</span><span class="p">,]</span>   <span class="m">5</span>       <span class="m">1</span>   <span class="m">0</span>
+<span class="p">[</span><span class="m">6</span><span class="p">,]</span>   <span class="m">6</span>       <span class="m">2</span>   <span class="m">1</span>
+<span class="p">[</span><span class="m">7</span><span class="p">,]</span>   <span class="m">7</span>       <span class="m">3</span>   <span class="m">0</span>
+<span class="p">[</span><span class="m">8</span><span class="p">,]</span>   <span class="m">8</span>       <span class="m">4</span>   <span class="m">1</span>
+
+<span class="c1"># Get the column names</span>
+<span class="o">&gt;</span> <span class="kp">colnames</span><span class="p">(</span>mtx<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;seq&quot;</span>     <span class="s">&quot;quarter&quot;</span> <span class="s">&quot;bin&quot;</span> 
+
+<span class="c1"># We can build the same matrix using:</span>
+<span class="o">&gt;</span> seq<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">8</span>
+<span class="o">&gt;</span> quarter<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">4</span>
+<span class="o">&gt;</span> bin<span class="o">=</span><span class="m">0</span><span class="o">:</span><span class="m">1</span>
+<span class="o">&gt;</span> mtx <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span><span class="kp">seq</span><span class="p">,</span> quarter<span class="p">,</span> bin<span class="p">)</span>
+
+<span class="c1"># The name of the columns once again will be </span>
+<span class="o">&gt;</span> <span class="kp">colnames</span><span class="p">(</span>mtx<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;seq&quot;</span>     <span class="s">&quot;quarter&quot;</span> <span class="s">&quot;bin&quot;</span> 
+
+<span class="c1"># row names</span>
+<span class="o">&gt;</span> <span class="kp">row.names</span><span class="p">(</span>mtx<span class="p">)</span>
+<span class="kc">NULL</span>
+
+<span class="c1"># The matrix structure</span>
+<span class="o">&gt;</span> str<span class="p">(</span>mtx<span class="p">)</span>
+ int <span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span> <span class="m">8</span> <span class="m">1</span> <span class="m">2</span> <span class="kc">...</span>
+ <span class="o">-</span> <span class="kp">attr</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s">&quot;dimnames&quot;</span><span class="p">)</span><span class="o">=</span>List of <span class="m">2</span>
+  <span class="m">..</span><span class="o">$</span> <span class="o">:</span> <span class="kc">NULL</span>
+  <span class="m">..</span><span class="o">$</span> <span class="o">:</span> chr <span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span> <span class="s">&quot;seq&quot;</span> <span class="s">&quot;quarter&quot;</span> <span class="s">&quot;bin&quot;</span>
+
+<span class="c1"># You can flat (&quot;vectorize&quot;) a matrix with c()</span>
+<span class="o">&gt;</span> vec <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>mtx<span class="p">)</span>
+<span class="o">&gt;</span> vec
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span> <span class="m">8</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span>
+ 
+<span class="c1"># In the same way you can use mtx[[i]] to traverse mtx as a vector</span>
+<span class="o">&gt;</span> mtx<span class="p">[[</span><span class="m">5</span><span class="p">]]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">5</span>
+
+<span class="c1"># All the matrix elements should have the same type.</span>
+<span class="c1"># An attempt top use mixed types will cause the casting to</span>
+<span class="c1"># the broader type</span>
+<span class="o">&gt;</span> mtx <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span>seq<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span> quarter<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> gender<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;male&quot;</span><span class="p">,</span> <span class="s">&quot;female&quot;</span><span class="p">))</span>
+<span class="o">&gt;</span> mtx
+     seq quarter gender  
+<span class="p">[</span><span class="m">1</span><span class="p">,]</span> <span class="s">&quot;1&quot;</span> <span class="s">&quot;1&quot;</span>     <span class="s">&quot;male&quot;</span>  
+<span class="p">[</span><span class="m">2</span><span class="p">,]</span> <span class="s">&quot;2&quot;</span> <span class="s">&quot;2&quot;</span>     <span class="s">&quot;female&quot;</span>
+<span class="p">[</span><span class="m">3</span><span class="p">,]</span> <span class="s">&quot;3&quot;</span> <span class="s">&quot;3&quot;</span>     <span class="s">&quot;male&quot;</span>  
+<span class="p">[</span><span class="m">4</span><span class="p">,]</span> <span class="s">&quot;4&quot;</span> <span class="s">&quot;4&quot;</span>     <span class="s">&quot;female&quot;</span>
+<span class="p">[</span><span class="m">5</span><span class="p">,]</span> <span class="s">&quot;5&quot;</span> <span class="s">&quot;1&quot;</span>     <span class="s">&quot;male&quot;</span>  
+<span class="p">[</span><span class="m">6</span><span class="p">,]</span> <span class="s">&quot;6&quot;</span> <span class="s">&quot;2&quot;</span>     <span class="s">&quot;female&quot;</span>
+<span class="p">[</span><span class="m">7</span><span class="p">,]</span> <span class="s">&quot;7&quot;</span> <span class="s">&quot;3&quot;</span>     <span class="s">&quot;male&quot;</span>  
+<span class="p">[</span><span class="m">8</span><span class="p">,]</span> <span class="s">&quot;8&quot;</span> <span class="s">&quot;4&quot;</span>     <span class="s">&quot;female&quot;</span>
+
+<span class="c1"># row wise binding</span>
+<span class="o">&gt;</span> mtx <span class="o">&lt;-</span> <span class="kp">rbind</span><span class="p">(</span>seq<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span> quarter<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> bin<span class="o">=</span><span class="m">0</span><span class="o">:</span><span class="m">1</span><span class="p">)</span>
+<span class="o">&gt;</span> mtx
+        <span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="p">[,</span><span class="m">2</span><span class="p">]</span> <span class="p">[,</span><span class="m">3</span><span class="p">]</span> <span class="p">[,</span><span class="m">4</span><span class="p">]</span> <span class="p">[,</span><span class="m">5</span><span class="p">]</span> <span class="p">[,</span><span class="m">6</span><span class="p">]</span> <span class="p">[,</span><span class="m">7</span><span class="p">]</span> <span class="p">[,</span><span class="m">8</span><span class="p">]</span>
+seq        <span class="m">1</span>    <span class="m">2</span>    <span class="m">3</span>    <span class="m">4</span>    <span class="m">5</span>    <span class="m">6</span>    <span class="m">7</span>    <span class="m">8</span>
+quarter    <span class="m">1</span>    <span class="m">2</span>    <span class="m">3</span>    <span class="m">4</span>    <span class="m">1</span>    <span class="m">2</span>    <span class="m">3</span>    <span class="m">4</span>
+bin        <span class="m">0</span>    <span class="m">1</span>    <span class="m">0</span>    <span class="m">1</span>    <span class="m">0</span>    <span class="m">1</span>    <span class="m">0</span>    <span class="m">1</span>
+
+<span class="c1"># row names</span>
+<span class="o">&gt;</span> <span class="kp">row.names</span><span class="p">(</span>mtx<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;seq&quot;</span>     <span class="s">&quot;quarter&quot;</span> <span class="s">&quot;bin&quot;</span>    
+
+<span class="c1"># The matrix structure</span>
+<span class="o">&gt;</span> str<span class="p">(</span>mtx<span class="p">)</span>
+ int <span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">]</span> <span class="m">1</span> <span class="m">1</span> <span class="m">0</span> <span class="m">2</span> <span class="m">2</span> <span class="m">1</span> <span class="m">3</span> <span class="m">3</span> <span class="m">0</span> <span class="m">4</span> <span class="kc">...</span>
+ <span class="o">-</span> <span class="kp">attr</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s">&quot;dimnames&quot;</span><span class="p">)</span><span class="o">=</span>List of <span class="m">2</span>
+  <span class="m">..</span><span class="o">$</span> <span class="o">:</span> chr <span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span> <span class="s">&quot;seq&quot;</span> <span class="s">&quot;quarter&quot;</span> <span class="s">&quot;bin&quot;</span>
+  <span class="m">..</span><span class="o">$</span> <span class="o">:</span> <span class="kc">NULL</span></code></pre></div>
+
+
+<h2>List</h2>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">&gt;</span> l <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s">&quot;Hello&quot;</span><span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="m">18</span><span class="p">,</span><span class="m">65</span><span class="p">))</span>
+<span class="o">&gt;</span> l
+<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span>
+
+<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;Hello&quot;</span>
+
+<span class="p">[[</span><span class="m">3</span><span class="p">]]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">18</span> <span class="m">65</span></code></pre></div>
+
+
+<h2>Factor</h2>
+
+<p>Is <em>a special type</em> of vector which is used to create to represent categorical data.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Lets build a vector with factor values</span>
+<span class="o">&gt;</span> has_stock <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> has_stock
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;yes&quot;</span> <span class="s">&quot;yes&quot;</span> <span class="s">&quot;no&quot;</span>  <span class="s">&quot;yes&quot;</span> <span class="s">&quot;no&quot;</span>
+
+<span class="c1"># Convert the vector to an *unordered* factor</span>
+<span class="o">&gt;</span> fctr <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>has_stock<span class="p">)</span>
+<span class="c1"># Notice the following values are not quoted: they has not </span>
+<span class="c1"># the characters, they are factors!</span>
+<span class="c1"># Also notice the sequence of the levels</span>
+<span class="o">&gt;</span> fctr
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> yes yes no  yes no 
+Levels<span class="o">:</span> no yes
+
+<span class="c1"># Object class</span>
+<span class="o">&gt;</span> <span class="kp">class</span><span class="p">(</span>fctr<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;factor&quot;</span>
+
+<span class="c1"># Object structure summary</span>
+<span class="o">&gt;</span> str<span class="p">(</span>fctr<span class="p">)</span>
+ Factor w<span class="o">/</span> <span class="m">2</span> levels <span class="s">&quot;no&quot;</span><span class="p">,</span><span class="s">&quot;yes&quot;</span><span class="o">:</span> <span class="m">2</span> <span class="m">2</span> <span class="m">1</span> <span class="m">2</span> <span class="m">1</span>
+
+<span class="c1"># Object length</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>fctr<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">5</span>
+
+<span class="c1"># Factors has the attribute levels, which returns the encoded </span>
+<span class="c1"># labels. The factors are alphabetically as an ordered sequence.</span>
+<span class="c1"># Each factor is encoded with its index in that sequence.</span>
+<span class="c1"># i.e. {1:no, 2:yes}</span>
+<span class="o">&gt;</span> <span class="kp">levels</span><span class="p">(</span>fctr<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;no&quot;</span>  <span class="s">&quot;yes&quot;</span>
+
+<span class="c1"># You can specify the encoding with the levels parameter</span>
+<span class="o">&gt;</span> fctr <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">),</span> 
+<span class="o">+</span>    levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">))</span>
+<span class="c1"># Now the the factors are encoded as specified</span>
+<span class="o">&gt;</span> <span class="kp">levels</span><span class="p">(</span>fctr<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;yes&quot;</span> <span class="s">&quot;no&quot;</span> 
+<span class="o">&gt;</span> str<span class="p">(</span>fctr<span class="p">)</span>
+ Factor w<span class="o">/</span> <span class="m">2</span> levels <span class="s">&quot;yes&quot;</span><span class="p">,</span><span class="s">&quot;no&quot;</span><span class="o">:</span> <span class="m">1</span> <span class="m">1</span> <span class="m">2</span> <span class="m">1</span> <span class="m">2</span></code></pre></div>
+
+
+<h3>Handling Factors Content</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># *table()* returns an object of &#39;table&#39; type with the frequency</span>
+<span class="c1"># of each disticnt factor</span>
+<span class="o">&gt;</span> fctr <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">))</span>
+<span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>fctr<span class="p">)</span>
+fctr
+ no yes 
+  <span class="m">2</span>   <span class="m">3</span> 
+
+<span class="c1"># Unclass() allows the access to the coded values</span>
+<span class="o">&gt;</span> ucl <span class="o">&lt;-</span> <span class="kp">unclass</span><span class="p">(</span>fctr<span class="p">)</span>
+<span class="o">&gt;</span> str<span class="p">(</span>ucl<span class="p">)</span>
+ atomic <span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">]</span> <span class="m">2</span> <span class="m">2</span> <span class="m">1</span> <span class="m">2</span> <span class="m">1</span>
+ <span class="o">-</span> <span class="kp">attr</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s">&quot;levels&quot;</span><span class="p">)</span><span class="o">=</span> chr <span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span> <span class="s">&quot;no&quot;</span> <span class="s">&quot;yes&quot;</span>
+<span class="c1"># Get the factor as label</span>
+<span class="o">&gt;</span> fctr<span class="p">[</span><span class="m">2</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> yes
+Levels<span class="o">:</span> no yes
+<span class="c1"># Get the factor as code</span>
+ <span class="o">&gt;</span> ucl<span class="p">[</span><span class="m">2</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2</span></code></pre></div>
+
+
+<h2>Missing Values</h2>
+
+<p><em>NA</em>: Not Available. Missing value.
+<em>NaN</em>: Has a &ldquo;numeric nature&rdquo; but is not a numeric value (e.g the value of 0/0. They are used to represent missing numeric values.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># is.na() and is.nan() are used to identify this missing values.</span>
+<span class="c1"># Not Available</span>
+<span class="o">&gt;</span> notAvail <span class="o">&lt;-</span> <span class="kc">NA</span>
+<span class="o">&gt;</span> <span class="kp">is.na</span><span class="p">(</span>notAvail<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">TRUE</span>
+
+<span class="c1"># Not a Number</span>
+<span class="o">&gt;</span> notNumber <span class="o">&lt;-</span> NAN
+<span class="o">&gt;</span> <span class="kp">is.nan</span><span class="p">(</span>notNumber<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">TRUE</span>
+
+<span class="c1"># A NaN is a missing value</span>
+<span class="o">&gt;</span> <span class="kp">is.na</span><span class="p">(</span>notNumber<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">TRUE</span>
+
+<span class="c1"># But a missing value is not a NaN</span>
+<span class="o">&gt;</span> <span class="kp">is.nan</span><span class="p">(</span>notAvail<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">FALSE</span></code></pre></div>
+
+
+<h2>Swirl</h2>
+
+<p>library(swirl)
+info() displays these options:
+* <em>skip()</em> allows you to skip the current question.
+* <em>play()</em> lets you experiment with R on your own.
+* <em>nxt()</em> will come back to swirl after a play().
+* <em>bye()</em> Exits swirl. Your progress will be saved.
+* <em>main()</em> returns you to swirl&rsquo;s main menu.</p>
+
+  
+    <footer>
+      <p class="meta">
+        
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-12T11:30:00-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>11:30 am</span></time>
+        
+      </p>
+      
+        <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoursite.com/learning/r-programming/index.html" data-via="" data-counturl="http://yoursite.com/learning/r-programming/index.html" >Tweet</a>
+  
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/11/first-inaugural-post/">First Inaugural Post</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
