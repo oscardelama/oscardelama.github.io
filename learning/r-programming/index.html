@@ -173,7 +173,7 @@ five
 vec <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>
 
 <span class="c1"># As character elements</span>
-vec_tect <span class="o">&lt;-</span> as.characer<span class="p">(</span>vec<span class="p">)</span>
+vec_tect <span class="o">&lt;-</span> <span class="kp">as.character</span><span class="p">(</span>vec<span class="p">)</span>
 vec_tect <span class="o">&lt;-</span> <span class="kp">as.character</span><span class="p">(</span>vec<span class="p">)</span>
 vec_tect
   <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;2&quot;</span> <span class="s">&quot;5&quot;</span> <span class="s">&quot;8&quot;</span>
@@ -280,8 +280,8 @@ vec_log
 <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">5</span>
 
 <span class="c1"># All the matrix elements should have the same type.</span>
-<span class="c1"># An attempt top use mixed types will cause the casting to</span>
-<span class="c1"># the broader type</span>
+<span class="c1"># Any attempt to use mixed types will cause the casting of all elements to</span>
+<span class="c1"># a broader type</span>
 <span class="o">&gt;</span> mtx <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span>seq<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span> quarter<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> gender<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;male&quot;</span><span class="p">,</span> <span class="s">&quot;female&quot;</span><span class="p">))</span>
 <span class="o">&gt;</span> mtx
      seq quarter gender  
@@ -339,8 +339,8 @@ bin        <span class="m">0</span>    <span class="m">1</span>    <span class="
 
 <span class="c1"># Convert the vector to an *unordered* factor</span>
 <span class="o">&gt;</span> fctr <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>has_stock<span class="p">)</span>
-<span class="c1"># Notice the following values are not quoted: they has not </span>
-<span class="c1"># the characters, they are factors!</span>
+<span class="c1"># Notice the following values are not quoted: they are not </span>
+<span class="c1"># characters, they are factors!</span>
 <span class="c1"># Also notice the sequence of the levels</span>
 <span class="o">&gt;</span> fctr
 <span class="p">[</span><span class="m">1</span><span class="p">]</span> yes yes no  yes no 
@@ -423,6 +423,415 @@ Levels<span class="o">:</span> no yes
 <span class="o">&gt;</span> <span class="kp">is.nan</span><span class="p">(</span>notAvail<span class="p">)</span>
 <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">FALSE</span></code></pre></div>
 
+
+<h2>Subsetting</h2>
+
+<p>Operators to extract subsets of R objects</p>
+
+<ul>
+<li>[   Always returns an object of the same class as the source;</li>
+<li>[[  Extract elements of a list or a data frame by name or index. Extracts a single element.</li>
+<li>$   Extract elements of a list or a data frame by name</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="o">&gt;</span> vect <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">20</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Extract the element with a given index</span>
+</span><span class='line'><span class="o">&gt;</span> vect<span class="p">[</span><span class="m">2</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2</span>
+</span><span class='line'><span class="o">&gt;</span> vect<span class="p">[[</span><span class="m">3</span><span class="p">]]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Extract the elements with the given indices</span>
+</span><span class='line'><span class="o">&gt;</span> vect<span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">7</span><span class="p">)]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span> <span class="m">5</span> <span class="m">7</span>
+</span><span class='line'><span class="o">&gt;</span> vect<span class="p">[</span><span class="m">3</span><span class="o">:</span><span class="m">7</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Extract the elements flagged with a TRUE value</span>
+</span><span class='line'><span class="c1">#Notice the selector values are recycled</span>
+</span><span class='line'><span class="o">&gt;</span> vect<span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">FALSE</span><span class="p">)]</span>
+</span><span class='line'> <span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">1</span>  <span class="m">3</span>  <span class="m">5</span>  <span class="m">7</span>  <span class="m">9</span> <span class="m">11</span> <span class="m">13</span> <span class="m">15</span> <span class="m">17</span> <span class="m">19</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Extract the elements multiple of of 5</span>
+</span><span class='line'><span class="o">&gt;</span> vect<span class="p">[</span>vect <span class="o">%%</span> <span class="m">5</span> <span class="o">==</span> <span class="m">0</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">5</span> <span class="m">10</span> <span class="m">15</span> <span class="m">20</span>
+</span><span class='line'><span class="c1"># Notice the condition is producing a vector of logical values</span>
+</span><span class='line'><span class="c1"># that will select the chosen values</span>
+</span><span class='line'>cond <span class="o">&lt;-</span> vect <span class="o">%%</span> <span class="m">5</span> <span class="o">==</span> <span class="m">0</span>
+</span><span class='line'><span class="o">&gt;</span> vect<span class="p">[</span>cond<span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">5</span> <span class="m">10</span> <span class="m">15</span> <span class="m">20</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Selecting a value with an out of range index</span>
+</span><span class='line'><span class="o">&gt;</span> vect<span class="p">[</span><span class="m">30</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">NA</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Subsetting a Matrix</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="c1"># Remember the first coordinate is the row and the second is the column.</span>
+</span><span class='line'><span class="c1"># However, the matrix -by default- is filled column-wise.</span>
+</span><span class='line'><span class="o">&gt;</span> mtx <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> mtx
+</span><span class='line'>     <span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="p">[,</span><span class="m">2</span><span class="p">]</span> <span class="p">[,</span><span class="m">3</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">,]</span>    <span class="m">1</span>    <span class="m">3</span>    <span class="m">5</span>
+</span><span class='line'><span class="p">[</span><span class="m">2</span><span class="p">,]</span>    <span class="m">2</span>    <span class="m">4</span>    <span class="m">6</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Select an element by its indices </span>
+</span><span class='line'><span class="o">&gt;</span> mtx<span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">6</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># If one index is missing, the whole row/column is selected</span>
+</span><span class='line'><span class="o">&gt;</span> mtx<span class="p">[,</span><span class="m">2</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span> <span class="m">4</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Select elements in second row and 2th and 3rd columns</span>
+</span><span class='line'><span class="o">&gt;</span> mtx<span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">4</span> <span class="m">6</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># The result is a vector</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">class</span><span class="p">(</span>mtx<span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">])</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;integer&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># We can select a sub-matrix using the setting drop = FALSE</span>
+</span><span class='line'><span class="o">&gt;</span> mtx<span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> drop<span class="o">=</span><span class="kc">FALSE</span><span class="p">]</span>
+</span><span class='line'>     <span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="p">[,</span><span class="m">2</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">,]</span>    <span class="m">4</span>    <span class="m">6</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Selecting a value with an out of range index</span>
+</span><span class='line'><span class="o">&gt;</span> mtx<span class="p">[</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">]</span>
+</span><span class='line'>Error <span class="kr">in</span> mtx<span class="p">[</span><span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">]</span> <span class="o">:</span> subscript out of bounds
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Subsetting a List</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="o">&gt;</span> lst <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>seq<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> age<span class="o">=</span><span class="m">45</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> lst
+</span><span class='line'><span class="o">$</span><span class="kp">seq</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">$</span>age
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">45</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Selecting with an [index] returns a list (name, and value) with the given element</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[</span><span class="m">2</span><span class="p">]</span>
+</span><span class='line'><span class="o">$</span>age
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">45</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Selecting with an [[index]] returns only value with the given element</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">45</span>
+</span><span class='line'><span class="c1"># We can use the element name [[name]] instead of the index</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[[</span><span class="s">&quot;age&quot;</span><span class="p">]]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">45</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[</span><span class="s">&quot;age&quot;</span><span class="p">]</span>
+</span><span class='line'><span class="o">$</span>age
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">45</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># The $ operator extracts the list element in the same way as [[name]]</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="o">$</span>age
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">45</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Extracting a non existent element</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[</span><span class="m">8</span><span class="p">]</span>
+</span><span class='line'><span class="o">$&lt;</span><span class="kc">NA</span><span class="o">&gt;</span>
+</span><span class='line'><span class="kc">NULL</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[</span><span class="s">&quot;hi&quot;</span><span class="p">]</span>
+</span><span class='line'><span class="o">$&lt;</span><span class="kc">NA</span><span class="o">&gt;</span>
+</span><span class='line'><span class="kc">NULL</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[[</span><span class="m">8</span><span class="p">]]</span>
+</span><span class='line'>Error <span class="kr">in</span> lst<span class="p">[[</span><span class="m">8</span><span class="p">]]</span> <span class="o">:</span> subscript out of bounds
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Subsetting Nested Elements of a List</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="c1"># Select the 3rd element in the first list element</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[[</span><span class="m">1</span><span class="p">]][</span><span class="m">3</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># This is interpreted as 2 indices (in two dimensions)</span>
+</span><span class='line'><span class="c1"># Which is wrong for a list</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>
+</span><span class='line'>Error <span class="kr">in</span> lst<span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">]</span> <span class="o">:</span> incorrect number of dimensions
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Select the 1st and 3rd members in the list</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span>
+</span><span class='line'><span class="o">$</span><span class="kp">seq</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">$&lt;</span><span class="kc">NA</span><span class="o">&gt;</span>
+</span><span class='line'><span class="kc">NULL</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Select from the first list member, its 3rd element</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[[</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># &quot;Similar&quot; subsetting with the indices not as part of a vector:</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">]]</span>
+</span><span class='line'>Error <span class="kr">in</span> lst<span class="p">[[</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">]]</span> <span class="o">:</span> incorrect number of subscripts
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Partial name matching</span>
+</span><span class='line'><span class="c1"># Notice the list has &quot;seq&quot; member, but it can be </span>
+</span><span class='line'><span class="c1"># retrieved just mentioning part of the name</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="o">$</span>s
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+</span><span class='line'>However<span class="p">,</span> martial name matching doesn<span class="s">&#39;</span><span class="err">t work with the [[name]] operator:</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="o">$</span>s
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+</span><span class='line'>Unless we use the setting exact <span class="o">=</span> <span class="kc">FALSE</span>
+</span><span class='line'><span class="o">&gt;</span> lst<span class="p">[[</span><span class="s">&quot;s&quot;</span><span class="p">,</span> exact <span class="o">=</span><span class="bp">F</span><span class="p">]]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Removing NA values</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="c1"># The function complete.cases() finds the indices where both vector has </span>
+</span><span class='line'><span class="c1"># non NA values:</span>
+</span><span class='line'><span class="o">&gt;</span> x <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> y <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;2&quot;</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="s">&quot;4&quot;</span><span class="p">,</span> <span class="s">&quot;5&quot;</span><span class="p">,</span> <span class="kc">NA</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> complete <span class="o">&lt;-</span> complete.cases<span class="p">(</span>x<span class="p">,</span> y<span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> x<span class="p">[</span>complete<span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">4</span>
+</span><span class='line'><span class="o">&gt;</span> y<span class="p">[</span>complete<span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;1&quot;</span> <span class="s">&quot;2&quot;</span> <span class="s">&quot;4&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Control Structures</h2>
+
+<h3>if</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="c1"># Complete &quot;if&quot;</span>
+</span><span class='line'><span class="kr">if</span><span class="p">(</span><span class="o">&lt;</span>condition<span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">## do something</span>
+</span><span class='line'><span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">## do something else</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Complete &quot;if&quot; with complete &quot;else if&quot;</span>
+</span><span class='line'><span class="kr">if</span><span class="p">(</span><span class="o">&lt;</span>condition1<span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">## do something</span>
+</span><span class='line'><span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span><span class="p">(</span><span class="o">&lt;</span>condition2<span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">## do something different</span>
+</span><span class='line'><span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">## do something different</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Valued if</span>
+</span><span class='line'>y <span class="o">&lt;-</span> <span class="kr">if</span><span class="p">(</span>x <span class="o">&gt;</span> <span class="m">3</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="m">10</span>
+</span><span class='line'><span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+</span><span class='line'>  <span class="m">0</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>for</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="c1"># In all the following cases &quot;Iterate&quot; can be a single R sentence or more</span>
+</span><span class='line'><span class="c1"># than one enclosed by curly brackets {# Iterate}</span>
+</span><span class='line'><span class="kr">for</span><span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">)</span> <span class="c1"># Iterate</span>
+</span><span class='line'><span class="kr">for</span><span class="p">(</span>i <span class="kr">in</span> <span class="kp">seq_along</span><span class="p">(</span>x<span class="p">))</span> <span class="c1"># Iterate</span>
+</span><span class='line'><span class="kr">for</span><span class="p">(</span>letter <span class="kr">in</span> x<span class="p">)</span> <span class="c1"># Iterate</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>while</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="kr">while</span> <span class="p">(</span><span class="o">&lt;</span>condition<span class="o">&gt;</span><span class="p">)</span> <span class="c1"># Iterate</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>repeat</h3>
+
+<p>The iteration body must contain a <em>break</em> statement to terminate an otherwise never-ending loop.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="kr">repeat</span> <span class="c1"># Iterate</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>break and next</h3>
+
+<p><em>next</em> is used to skip to the following iteration in a loop
+<em>break</em> is used to skip a loop</p>
 
 <h2>Swirl</h2>
 
