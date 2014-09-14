@@ -105,7 +105,7 @@ vec <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</spa
 <span class="c1"># A vector is atomic: it contains a collection of elements of one type</span>
 <span class="o">&gt;</span> <span class="kp">class</span><span class="p">(</span>vec<span class="p">)</span>
   <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;numeric&quot;</span>
-  
+
 <span class="c1"># Object structure summary</span>
 <span class="o">&gt;</span> str<span class="p">(</span>vec<span class="p">)</span>
  atomic <span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span> <span class="m">2</span> <span class="m">5</span> <span class="m">8</span>
@@ -116,9 +116,9 @@ vec <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</spa
 <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span>
 
 <span class="c1"># We can freely attach a comment to the object</span>
-<span class="o">&gt;</span> <span class="kp">comment</span><span class="p">(</span>vec<span class="p">)</span> 
+<span class="o">&gt;</span> <span class="kp">comment</span><span class="p">(</span>vec<span class="p">)</span>
   <span class="kc">NULL</span>
-<span class="o">&gt;</span> <span class="kp">comment</span><span class="p">(</span>vec<span class="p">)</span> <span class="o">&lt;-</span> <span class="s">&quot;A dummy sample&quot;</span> 
+<span class="o">&gt;</span> <span class="kp">comment</span><span class="p">(</span>vec<span class="p">)</span> <span class="o">&lt;-</span> <span class="s">&quot;A dummy sample&quot;</span>
 <span class="o">&gt;</span> <span class="kp">comment</span><span class="p">(</span>vec<span class="p">)</span>
   <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;A dummy sample&quot;</span>
 
@@ -127,22 +127,22 @@ vec <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</spa
   <span class="kc">NULL</span>
 <span class="o">&gt;</span> <span class="kp">names</span><span class="p">(</span>vec<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">,</span> <span class="s">&quot;five&quot;</span><span class="p">,</span> <span class="s">&quot;eight&quot;</span><span class="p">)</span>
 vec
-  two  five eight 
-    <span class="m">2</span>     <span class="m">5</span>     <span class="m">8</span> 
+  two  five eight
+    <span class="m">2</span>     <span class="m">5</span>     <span class="m">8</span>
 <span class="c1"># We can use those names to select vector elements</span>
 <span class="o">&gt;</span> vec<span class="p">[</span><span class="s">&quot;five&quot;</span><span class="p">]</span>
-five 
-   <span class="m">5</span> 
+five
+   <span class="m">5</span>
 <span class="c1">#However, it is still a vector</span>
 <span class="o">&gt;</span> <span class="kp">class</span><span class="p">(</span>vec<span class="p">)</span>
 <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;numeric&quot;</span>
 
-<span class="c1"># Object dimensions. </span>
+<span class="c1"># Object dimensions.</span>
 <span class="c1"># The vector is &quot;dimensionless&quot;,  a matrix, array or data frame are not.</span>
-<span class="o">&gt;</span> <span class="kp">dim</span><span class="p">(</span>vec<span class="p">)</span> 
+<span class="o">&gt;</span> <span class="kp">dim</span><span class="p">(</span>vec<span class="p">)</span>
   <span class="kc">NULL</span>
 <span class="c1"># There is name for each dimension</span>
-<span class="o">&gt;</span> <span class="kp">dimnames</span><span class="p">(</span>vec<span class="p">)</span> 
+<span class="o">&gt;</span> <span class="kp">dimnames</span><span class="p">(</span>vec<span class="p">)</span>
   <span class="kc">NULL</span></code></pre></div>
 
 
@@ -215,9 +215,9 @@ vec_log
 <span class="c1"># Object structure summary</span>
 <span class="o">&gt;</span> str<span class="p">(</span>mtx<span class="p">)</span>
  int <span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span>
- 
-<span class="c1"># Object dimensions. </span>
-<span class="o">&gt;</span> <span class="kp">dim</span><span class="p">(</span>mtx<span class="p">)</span> 
+
+<span class="c1"># Object dimensions.</span>
+<span class="o">&gt;</span> <span class="kp">dim</span><span class="p">(</span>mtx<span class="p">)</span>
 <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2</span> <span class="m">3</span>
 
 <span class="c1"># Names of each object dimension</span>
@@ -229,9 +229,9 @@ vec_log
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># cbind and rbind are more powerful way to build a matrix</span>
 <span class="c1"># Each parameter in the call becomes a column of</span>
-<span class="c1"># the resulting matrix. </span>
-<span class="c1"># The smaller parameters (with smaller count of elements) </span>
-<span class="c1"># are recycled, so they have to be a sub-multiple of </span>
+<span class="c1"># the resulting matrix.</span>
+<span class="c1"># The smaller parameters (with smaller count of elements)</span>
+<span class="c1"># are recycled, so they have to be a sub-multiple of</span>
 <span class="c1"># the largest one. Otherwise you will get a warning message.</span>
 <span class="o">&gt;</span> mtx <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span>seq<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span> quarter<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> bin<span class="o">=</span><span class="m">0</span><span class="o">:</span><span class="m">1</span><span class="p">)</span>
 <span class="o">&gt;</span> mtx
@@ -247,7 +247,7 @@ vec_log
 
 <span class="c1"># Get the column names</span>
 <span class="o">&gt;</span> <span class="kp">colnames</span><span class="p">(</span>mtx<span class="p">)</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;seq&quot;</span>     <span class="s">&quot;quarter&quot;</span> <span class="s">&quot;bin&quot;</span> 
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;seq&quot;</span>     <span class="s">&quot;quarter&quot;</span> <span class="s">&quot;bin&quot;</span>
 
 <span class="c1"># We can build the same matrix using:</span>
 <span class="o">&gt;</span> seq<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">8</span>
@@ -255,9 +255,9 @@ vec_log
 <span class="o">&gt;</span> bin<span class="o">=</span><span class="m">0</span><span class="o">:</span><span class="m">1</span>
 <span class="o">&gt;</span> mtx <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span><span class="kp">seq</span><span class="p">,</span> quarter<span class="p">,</span> bin<span class="p">)</span>
 
-<span class="c1"># The name of the columns once again will be </span>
+<span class="c1"># The name of the columns once again will be</span>
 <span class="o">&gt;</span> <span class="kp">colnames</span><span class="p">(</span>mtx<span class="p">)</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;seq&quot;</span>     <span class="s">&quot;quarter&quot;</span> <span class="s">&quot;bin&quot;</span> 
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;seq&quot;</span>     <span class="s">&quot;quarter&quot;</span> <span class="s">&quot;bin&quot;</span>
 
 <span class="c1"># row names</span>
 <span class="o">&gt;</span> <span class="kp">row.names</span><span class="p">(</span>mtx<span class="p">)</span>
@@ -274,7 +274,7 @@ vec_log
 <span class="o">&gt;</span> vec <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>mtx<span class="p">)</span>
 <span class="o">&gt;</span> vec
  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span> <span class="m">8</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span>
- 
+
 <span class="c1"># In the same way you can use mtx[[i]] to traverse mtx as a vector</span>
 <span class="o">&gt;</span> mtx<span class="p">[[</span><span class="m">5</span><span class="p">]]</span>
 <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">5</span>
@@ -284,14 +284,14 @@ vec_log
 <span class="c1"># a broader type</span>
 <span class="o">&gt;</span> mtx <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span>seq<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span> quarter<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> gender<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;male&quot;</span><span class="p">,</span> <span class="s">&quot;female&quot;</span><span class="p">))</span>
 <span class="o">&gt;</span> mtx
-     seq quarter gender  
-<span class="p">[</span><span class="m">1</span><span class="p">,]</span> <span class="s">&quot;1&quot;</span> <span class="s">&quot;1&quot;</span>     <span class="s">&quot;male&quot;</span>  
+     seq quarter gender
+<span class="p">[</span><span class="m">1</span><span class="p">,]</span> <span class="s">&quot;1&quot;</span> <span class="s">&quot;1&quot;</span>     <span class="s">&quot;male&quot;</span>
 <span class="p">[</span><span class="m">2</span><span class="p">,]</span> <span class="s">&quot;2&quot;</span> <span class="s">&quot;2&quot;</span>     <span class="s">&quot;female&quot;</span>
-<span class="p">[</span><span class="m">3</span><span class="p">,]</span> <span class="s">&quot;3&quot;</span> <span class="s">&quot;3&quot;</span>     <span class="s">&quot;male&quot;</span>  
+<span class="p">[</span><span class="m">3</span><span class="p">,]</span> <span class="s">&quot;3&quot;</span> <span class="s">&quot;3&quot;</span>     <span class="s">&quot;male&quot;</span>
 <span class="p">[</span><span class="m">4</span><span class="p">,]</span> <span class="s">&quot;4&quot;</span> <span class="s">&quot;4&quot;</span>     <span class="s">&quot;female&quot;</span>
-<span class="p">[</span><span class="m">5</span><span class="p">,]</span> <span class="s">&quot;5&quot;</span> <span class="s">&quot;1&quot;</span>     <span class="s">&quot;male&quot;</span>  
+<span class="p">[</span><span class="m">5</span><span class="p">,]</span> <span class="s">&quot;5&quot;</span> <span class="s">&quot;1&quot;</span>     <span class="s">&quot;male&quot;</span>
 <span class="p">[</span><span class="m">6</span><span class="p">,]</span> <span class="s">&quot;6&quot;</span> <span class="s">&quot;2&quot;</span>     <span class="s">&quot;female&quot;</span>
-<span class="p">[</span><span class="m">7</span><span class="p">,]</span> <span class="s">&quot;7&quot;</span> <span class="s">&quot;3&quot;</span>     <span class="s">&quot;male&quot;</span>  
+<span class="p">[</span><span class="m">7</span><span class="p">,]</span> <span class="s">&quot;7&quot;</span> <span class="s">&quot;3&quot;</span>     <span class="s">&quot;male&quot;</span>
 <span class="p">[</span><span class="m">8</span><span class="p">,]</span> <span class="s">&quot;8&quot;</span> <span class="s">&quot;4&quot;</span>     <span class="s">&quot;female&quot;</span>
 
 <span class="c1"># row wise binding</span>
@@ -304,7 +304,7 @@ bin        <span class="m">0</span>    <span class="m">1</span>    <span class="
 
 <span class="c1"># row names</span>
 <span class="o">&gt;</span> <span class="kp">row.names</span><span class="p">(</span>mtx<span class="p">)</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;seq&quot;</span>     <span class="s">&quot;quarter&quot;</span> <span class="s">&quot;bin&quot;</span>    
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;seq&quot;</span>     <span class="s">&quot;quarter&quot;</span> <span class="s">&quot;bin&quot;</span>
 
 <span class="c1"># The matrix structure</span>
 <span class="o">&gt;</span> str<span class="p">(</span>mtx<span class="p">)</span>
@@ -328,6 +328,25 @@ bin        <span class="m">0</span>    <span class="m">1</span>    <span class="
 <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">18</span> <span class="m">65</span></code></pre></div>
 
 
+<h2>Handling Environments</h2>
+
+<ul>
+<li>rm: Remove objects from a specified environment</li>
+<li>ls: List objects</li>
+<li>objects</li>
+</ul>
+
+
+<h2>Handling packages</h2>
+
+<ul>
+<li>install.packages</li>
+<li>update.packages</li>
+<li>library:  load a library</li>
+<li>packageVersion: Find the version number of a package</li>
+</ul>
+
+
 <h2>Factor</h2>
 
 <p>Is <em>a special type</em> of vector which is used to create to represent categorical data.</p>
@@ -339,11 +358,11 @@ bin        <span class="m">0</span>    <span class="m">1</span>    <span class="
 
 <span class="c1"># Convert the vector to an *unordered* factor</span>
 <span class="o">&gt;</span> fctr <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>has_stock<span class="p">)</span>
-<span class="c1"># Notice the following values are not quoted: they are not </span>
+<span class="c1"># Notice the following values are not quoted: they are not</span>
 <span class="c1"># characters, they are factors!</span>
 <span class="c1"># Also notice the sequence of the levels</span>
 <span class="o">&gt;</span> fctr
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> yes yes no  yes no 
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> yes yes no  yes no
 Levels<span class="o">:</span> no yes
 
 <span class="c1"># Object class</span>
@@ -358,7 +377,7 @@ Levels<span class="o">:</span> no yes
 <span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>fctr<span class="p">)</span>
 <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">5</span>
 
-<span class="c1"># Factors has the attribute levels, which returns the encoded </span>
+<span class="c1"># Factors has the attribute levels, which returns the encoded</span>
 <span class="c1"># labels. The factors are alphabetically as an ordered sequence.</span>
 <span class="c1"># Each factor is encoded with its index in that sequence.</span>
 <span class="c1"># i.e. {1:no, 2:yes}</span>
@@ -366,11 +385,11 @@ Levels<span class="o">:</span> no yes
 <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;no&quot;</span>  <span class="s">&quot;yes&quot;</span>
 
 <span class="c1"># You can specify the encoding with the levels parameter</span>
-<span class="o">&gt;</span> fctr <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">),</span> 
+<span class="o">&gt;</span> fctr <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">),</span>
 <span class="o">+</span>    levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">))</span>
 <span class="c1"># Now the the factors are encoded as specified</span>
 <span class="o">&gt;</span> <span class="kp">levels</span><span class="p">(</span>fctr<span class="p">)</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;yes&quot;</span> <span class="s">&quot;no&quot;</span> 
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;yes&quot;</span> <span class="s">&quot;no&quot;</span>
 <span class="o">&gt;</span> str<span class="p">(</span>fctr<span class="p">)</span>
  Factor w<span class="o">/</span> <span class="m">2</span> levels <span class="s">&quot;yes&quot;</span><span class="p">,</span><span class="s">&quot;no&quot;</span><span class="o">:</span> <span class="m">1</span> <span class="m">1</span> <span class="m">2</span> <span class="m">1</span> <span class="m">2</span></code></pre></div>
 
@@ -382,8 +401,8 @@ Levels<span class="o">:</span> no yes
 <span class="o">&gt;</span> fctr <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">))</span>
 <span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>fctr<span class="p">)</span>
 fctr
- no yes 
-  <span class="m">2</span>   <span class="m">3</span> 
+ no yes
+  <span class="m">2</span>   <span class="m">3</span>
 
 <span class="c1"># Unclass() allows the access to the coded values</span>
 <span class="o">&gt;</span> ucl <span class="o">&lt;-</span> <span class="kp">unclass</span><span class="p">(</span>fctr<span class="p">)</span>
@@ -424,9 +443,36 @@ Levels<span class="o">:</span> no yes
 <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">FALSE</span></code></pre></div>
 
 
+<h2>Sequences</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="o">&gt;</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">10</span><span class="p">,</span>by<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">3</span> <span class="m">5</span> <span class="m">7</span> <span class="m">9</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">10</span><span class="p">,</span>length<span class="o">=</span><span class="m">4</span><span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">1</span>  <span class="m">4</span>  <span class="m">7</span> <span class="m">10</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;</span> x <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">13</span><span class="p">,</span><span class="m">21</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">seq</span><span class="p">(</span>along <span class="o">=</span> x<span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">seq_along</span><span class="p">(</span>x<span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ifelse(condition, yes_value, no_value)</p>
+
 <h2>Subsetting</h2>
 
-<p>Operators to extract subsets of R objects</p>
+<p>Operators to extract subsets of R objects:</p>
 
 <ul>
 <li>[   Always returns an object of the same class as the source;</li>
@@ -481,15 +527,15 @@ Levels<span class="o">:</span> no yes
 </span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">#Extract the elements flagged with a TRUE value</span>
-</span><span class='line'><span class="c1">#Notice the selector values are recycled</span>
+</span><span class='line'><span class="c1">#Notice the logical selector values are recycled</span>
 </span><span class='line'><span class="o">&gt;</span> vect<span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">FALSE</span><span class="p">)]</span>
 </span><span class='line'> <span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">1</span>  <span class="m">3</span>  <span class="m">5</span>  <span class="m">7</span>  <span class="m">9</span> <span class="m">11</span> <span class="m">13</span> <span class="m">15</span> <span class="m">17</span> <span class="m">19</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1">#Extract the elements multiple of of 5</span>
+</span><span class='line'><span class="c1">#Extract the elements multiple of 5</span>
 </span><span class='line'><span class="o">&gt;</span> vect<span class="p">[</span>vect <span class="o">%%</span> <span class="m">5</span> <span class="o">==</span> <span class="m">0</span><span class="p">]</span>
 </span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">5</span> <span class="m">10</span> <span class="m">15</span> <span class="m">20</span>
 </span><span class='line'><span class="c1"># Notice the condition is producing a vector of logical values</span>
-</span><span class='line'><span class="c1"># that will select the chosen values</span>
+</span><span class='line'><span class="c1"># selecting the chosen values</span>
 </span><span class='line'>cond <span class="o">&lt;-</span> vect <span class="o">%%</span> <span class="m">5</span> <span class="o">==</span> <span class="m">0</span>
 </span><span class='line'><span class="o">&gt;</span> vect<span class="p">[</span>cond<span class="p">]</span>
 </span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">5</span> <span class="m">10</span> <span class="m">15</span> <span class="m">20</span>
@@ -542,7 +588,7 @@ Levels<span class="o">:</span> no yes
 </span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">,]</span>    <span class="m">1</span>    <span class="m">3</span>    <span class="m">5</span>
 </span><span class='line'><span class="p">[</span><span class="m">2</span><span class="p">,]</span>    <span class="m">2</span>    <span class="m">4</span>    <span class="m">6</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1"># Select an element by its indices </span>
+</span><span class='line'><span class="c1"># Select an element by its indices</span>
 </span><span class='line'><span class="o">&gt;</span> mtx<span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>
 </span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">6</span>
 </span><span class='line'>
@@ -646,6 +692,203 @@ Levels<span class="o">:</span> no yes
 </span></code></pre></td></tr></table></div></figure>
 
 
+<h3>Manipulating a data Frame</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="o">&gt;</span> df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span> col1<span class="o">=</span>rnorm<span class="p">(</span><span class="m">10</span><span class="p">),</span> col2<span class="o">=</span>runif<span class="p">(</span><span class="m">10</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Select rows 1 to 3 and column named &quot;col2&quot;</span>
+</span><span class='line'><span class="o">&gt;</span> df<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="s">&quot;col2&quot;</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.3847243</span> <span class="m">0.4879190</span> <span class="m">0.2292318</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Select all rows but the first three ones</span>
+</span><span class='line'><span class="o">&gt;</span> df<span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">),]</span>
+</span><span class='line'>          col1      col2
+</span><span class='line'><span class="m">4</span>   <span class="m">0.33903024</span> <span class="m">0.2793928</span>
+</span><span class='line'><span class="m">5</span>  <span class="m">-1.45067820</span> <span class="m">0.7794572</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Select rows by two logical conditions joined by logical &quot;and&quot; (&amp;).</span>
+</span><span class='line'><span class="c1"># The comma is to indicate there is not restriction about the columns,</span>
+</span><span class='line'><span class="c1"># this way all the columns in the data frame will appear in the output</span>
+</span><span class='line'><span class="o">&gt;</span> df<span class="p">[(</span>df<span class="o">$</span>col1<span class="o">&gt;</span><span class="m">0</span> <span class="o">&amp;</span> df<span class="o">$</span>col2<span class="o">&gt;</span><span class="m">0</span><span class="p">),</span> <span class="p">]</span>
+</span><span class='line'>       col1      col2
+</span><span class='line'><span class="m">2</span> <span class="m">0.4996887</span> <span class="m">0.4879190</span>
+</span><span class='line'><span class="m">4</span> <span class="m">0.3390302</span> <span class="m">0.2793928</span>
+</span><span class='line'><span class="o">:</span>
+</span><span class='line'><span class="c1"># This selection is similar to the previous one</span>
+</span><span class='line'><span class="c1"># but the conditions are joined by a logical &quot;or&quot; (|)</span>
+</span><span class='line'><span class="o">&gt;</span> df<span class="p">[(</span>df<span class="o">$</span>col1<span class="o">&gt;</span><span class="m">0</span> <span class="o">|</span> df<span class="o">$</span>col2<span class="o">&gt;</span><span class="m">0</span><span class="p">),</span> <span class="p">]</span>
+</span><span class='line'>          col1      col2
+</span><span class='line'><span class="m">1</span>  <span class="m">-0.28077454</span> <span class="m">0.3847243</span>
+</span><span class='line'><span class="m">2</span>   <span class="m">0.49968870</span> <span class="m">0.4879190</span>
+</span><span class='line'><span class="o">:</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># The function which returns a vector with the indices</span>
+</span><span class='line'><span class="c1"># of the elements satisfying the given condition</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">which</span><span class="p">(</span>df<span class="o">$</span>col1<span class="o">&gt;</span><span class="m">0</span><span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2</span> <span class="m">4</span> <span class="m">6</span> <span class="m">7</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># The sort function you can sort the data</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">sort</span><span class="p">(</span>df<span class="o">$</span>col1<span class="p">)</span>
+</span><span class='line'> <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">-1.45067820</span> <span class="m">-0.37078268</span> <span class="m">-0.32129470</span> <span class="m">-0.28077454</span> <span class="m">-0.10086351</span> <span class="m">-0.09041061</span>
+</span><span class='line'> <span class="p">[</span><span class="m">7</span><span class="p">]</span>  <span class="m">0.33903024</span>  <span class="m">0.49968870</span>  <span class="m">0.59671933</span>  <span class="m">1.57662348</span>
+</span><span class='line'> <span class="c1"># By default the sort is for increasing values</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">sort</span><span class="p">(</span>df<span class="o">$</span>col1<span class="p">,</span> decreasing <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</span><span class='line'> <span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">1.57662348</span>  <span class="m">0.59671933</span>  <span class="m">0.49968870</span>  <span class="m">0.33903024</span> <span class="m">-0.09041061</span> <span class="m">-0.10086351</span>
+</span><span class='line'> <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="m">-0.28077454</span> <span class="m">-0.32129470</span> <span class="m">-0.37078268</span> <span class="m">-1.45067820</span>
+</span><span class='line'>
+</span><span class='line'>The order of the rows <span class="kr">in</span> the <span class="kt">data frame</span> can be sort using the order <span class="kr">function</span>
+</span><span class='line'><span class="o">&gt;</span> df<span class="p">[</span><span class="kp">order</span><span class="p">(</span>df<span class="o">$</span>col1<span class="p">,</span> decreasing <span class="o">=</span> <span class="bp">T</span><span class="p">),]</span>
+</span><span class='line'>          col1      col2
+</span><span class='line'><span class="m">6</span>   <span class="m">1.57662348</span> <span class="m">0.3149501</span>
+</span><span class='line'><span class="m">7</span>   <span class="m">0.59671933</span> <span class="m">0.9490971</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># The order function returns the row indices sorted as specified</span>
+</span><span class='line'><span class="kp">order</span><span class="p">(</span>df<span class="o">$</span>col1<span class="p">,</span> decreasing <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</span><span class='line'> <span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">6</span>  <span class="m">7</span>  <span class="m">2</span>  <span class="m">4</span>  <span class="m">8</span>  <span class="m">3</span>  <span class="m">1</span>  <span class="m">9</span> <span class="m">10</span>  <span class="m">5</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># You can order by multiple columns</span>
+</span><span class='line'><span class="o">&gt;</span> df<span class="p">[</span><span class="kp">order</span><span class="p">(</span>df<span class="o">$</span>col1<span class="p">,</span> df<span class="o">$</span>col2<span class="p">),]</span>
+</span><span class='line'>          col1      col2
+</span><span class='line'><span class="m">5</span>  <span class="m">-1.45067820</span> <span class="m">0.7794572</span>
+</span><span class='line'><span class="m">10</span> <span class="m">-0.37078268</span> <span class="m">0.4501038</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">## Add a new column  ##</span>
+</span><span class='line'><span class="c1"># Notice how the new values are recycled</span>
+</span><span class='line'><span class="o">&gt;</span> df<span class="o">$</span>new <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;hi&quot;</span><span class="p">,</span> <span class="s">&quot;lo&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> df
+</span><span class='line'>          col1      col2 new
+</span><span class='line'><span class="m">1</span>  <span class="m">-0.28077454</span> <span class="m">0.3847243</span>  hi
+</span><span class='line'><span class="m">2</span>   <span class="m">0.49968870</span> <span class="m">0.4879190</span>  lo
+</span><span class='line'><span class="m">3</span>  <span class="m">-0.10086351</span> <span class="m">0.2292318</span>  hi
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Select rows with a column value in a given list</span>
+</span><span class='line'><span class="o">&gt;</span> df2<span class="p">[</span>df2<span class="o">$</span>height <span class="o">%in%</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;hi&quot;</span><span class="p">),]</span>
+</span><span class='line'>        col1      col2 height
+</span><span class='line'><span class="m">1</span> <span class="m">-0.2807745</span> <span class="m">0.3847243</span>     hi
+</span><span class='line'><span class="m">3</span> <span class="m">-0.1008635</span> <span class="m">0.2292318</span>     hi
+</span><span class='line'>
+</span><span class='line'><span class="c1">## Delete a column ##</span>
+</span><span class='line'><span class="o">&gt;</span> df<span class="o">$</span>new <span class="o">&lt;-</span> <span class="kc">NULL</span>
+</span><span class='line'><span class="o">&gt;</span> df
+</span><span class='line'>          col1      col2
+</span><span class='line'><span class="m">1</span>  <span class="m">-0.28077454</span> <span class="m">0.3847243</span>
+</span><span class='line'><span class="m">2</span>   <span class="m">0.49968870</span> <span class="m">0.4879190</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">## Add a new getting a new data frame by combining columns</span>
+</span><span class='line'><span class="o">&gt;</span> df2 <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span>df<span class="p">,</span> height<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;hi&quot;</span><span class="p">,</span> <span class="s">&quot;lo&quot;</span><span class="p">))</span>
+</span><span class='line'><span class="o">&gt;</span> df2
+</span><span class='line'>          col1      col2 height
+</span><span class='line'><span class="m">1</span>  <span class="m">-0.28077454</span> <span class="m">0.3847243</span>     hi
+</span><span class='line'><span class="m">2</span>   <span class="m">0.49968870</span> <span class="m">0.4879190</span>     lo
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Plyr</h4>
+
+<p>filter(.data, &hellip;)
+summarise(.data, &hellip;)
+summarize(.data, &hellip;)
+mutate(.data, &hellip;)
+arrange(.data, &hellip;)
+select(.data, &hellip;)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="c1"># Sort the rows with the col1 values in ascending order</span>
+</span><span class='line'>arrange<span class="p">(</span>df<span class="p">,</span> col1<span class="p">)</span>
+</span><span class='line'><span class="c1"># Same as previous but with descending order</span>
+</span><span class='line'>arrange<span class="p">(</span>df<span class="p">,</span> desc<span class="p">(</span>col1<span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <h3>Subsetting Nested Elements of a List</h3>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -710,7 +953,7 @@ Levels<span class="o">:</span> no yes
 </span><span class='line'>Error <span class="kr">in</span> lst<span class="p">[[</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">]]</span> <span class="o">:</span> incorrect number of subscripts
 </span><span class='line'>
 </span><span class='line'><span class="c1"># Partial name matching</span>
-</span><span class='line'><span class="c1"># Notice the list has &quot;seq&quot; member, but it can be </span>
+</span><span class='line'><span class="c1"># Notice the list has &quot;seq&quot; member, but it can be</span>
 </span><span class='line'><span class="c1"># retrieved just mentioning part of the name</span>
 </span><span class='line'><span class="o">&gt;</span> lst<span class="o">$</span>s
 </span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
@@ -734,7 +977,7 @@ Levels<span class="o">:</span> no yes
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="c1"># The function complete.cases() finds the indices where both vector has </span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="c1"># The function complete.cases() finds the indices where both vector has</span>
 </span><span class='line'><span class="c1"># non NA values:</span>
 </span><span class='line'><span class="o">&gt;</span> x <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
 </span><span class='line'><span class="o">&gt;</span> y <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;2&quot;</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="s">&quot;4&quot;</span><span class="p">,</span> <span class="s">&quot;5&quot;</span><span class="p">,</span> <span class="kc">NA</span><span class="p">)</span>
@@ -779,7 +1022,7 @@ Levels<span class="o">:</span> no yes
 </span><span class='line'>  <span class="c1">## do something else</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1"># Complete &quot;if&quot; with complete &quot;else if&quot;</span>
+</span><span class='line'><span class="c1"># &quot;if&quot; with complete &quot;else if&quot;</span>
 </span><span class='line'><span class="kr">if</span><span class="p">(</span><span class="o">&lt;</span>condition1<span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">## do something</span>
 </span><span class='line'><span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span><span class="p">(</span><span class="o">&lt;</span>condition2<span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
@@ -833,15 +1076,436 @@ Levels<span class="o">:</span> no yes
 <p><em>next</em> is used to skip to the following iteration in a loop
 <em>break</em> is used to skip a loop</p>
 
-<h2>Swirl</h2>
+<h2>Functions</h2>
 
-<p>library(swirl)
-info() displays these options:
-* <em>skip()</em> allows you to skip the current question.
-* <em>play()</em> lets you experiment with R on your own.
-* <em>nxt()</em> will come back to swirl after a play().
-* <em>bye()</em> Exits swirl. Your progress will be saved.
-* <em>main()</em> returns you to swirl&rsquo;s main menu.</p>
+<p>The value returned by the function is the result of the last evaluated expression.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'>f <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="o">&lt;</span>arguments<span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">## Do something interesting</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Argument Matching</h3>
+
+<ol>
+<li>Check for exact match for a named argument</li>
+<li>Check for a partial match</li>
+<li>Check for a positional match</li>
+</ol>
+
+
+<h3>Defining a Function</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'>f <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>a<span class="p">,</span> b <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="kt">c</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> d <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Lazy Evaluation</h3>
+
+<p>Arguments to functions are evaluated lazily, so they are evaluated only as needed.</p>
+
+<h3>The “&hellip;” Argument</h3>
+
+<p>The &hellip; argument indicate a variable number of arguments that are usually passed on to other
+functions.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'>myplot <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> type <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  plot<span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> type <span class="o">=</span> type<span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>The “&hellip;” Argument</h3>
+
+<p>The &hellip; argument is also necessary when the number of arguments passed to the function cannot be
+known in advance.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="o">&gt;</span> <span class="kp">args</span><span class="p">(</span><span class="kp">paste</span><span class="p">)</span>
+</span><span class='line'><span class="kr">function</span> <span class="p">(</span><span class="kc">...</span><span class="p">,</span> sep <span class="o">=</span> <span class="s">&quot; &quot;</span><span class="p">,</span> collapse <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>One catch with &hellip; is that any arguments that appear after &hellip; on the argument list must be named
+explicitly and cannot be partially matched. the arguments names must be fully specified.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="o">&gt;</span> <span class="kp">args</span><span class="p">(</span><span class="kp">paste</span><span class="p">)</span>
+</span><span class='line'><span class="kr">function</span> <span class="p">(</span><span class="kc">...</span><span class="p">,</span> sep <span class="o">=</span> <span class="s">&quot; &quot;</span><span class="p">,</span> collapse <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">paste</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> sep <span class="o">=</span> <span class="s">&quot;:&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;a:b&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># The partial match for &quot;se&quot; is ignored! so &quot;se&quot; is another element of the &quot;...&quot; argument</span>
+</span><span class='line'><span class="c1"># and concatenated together with &quot;a&quot; and &quot;b&quot;.</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">paste</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> se <span class="o">=</span> <span class="s">&quot;:&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;a b :&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Scoping Rules</h2>
+
+<p>How does R know which value to assign to which symbol?</p>
+
+<p>When R tries to bind a value to a symbol, it searches through a series of environments to find the
+appropriate value. When you are working on the command line and need to retrieve the value of an
+R object, the order is roughly</p>
+
+<ol>
+<li>Search the global environment for a symbol name matching the one requested.</li>
+<li>Search the namespaces of each of the packages on the search list</li>
+</ol>
+
+
+<p>The search list can be found by using the search function.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="o">&gt;</span> <span class="kp">search</span><span class="p">()</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;.GlobalEnv&quot;</span> <span class="s">&quot;package:stats&quot;</span> <span class="s">&quot;package:graphics&quot;</span>
+</span><span class='line'><span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="s">&quot;package:grDevices&quot;</span> <span class="s">&quot;package:utils&quot;</span> <span class="s">&quot;package:datasets&quot;</span>
+</span><span class='line'><span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s">&quot;package:methods&quot;</span> <span class="s">&quot;Autoloads&quot;</span> <span class="s">&quot;package:base&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The global environment or the user’s workspace is always the first element of the search list and the base package is always the last.</p>
+
+<p>The order of the packages on the search list matters! User’s can configure which packages get loaded on startup so you cannot assume that there will be a set list of packages available.</p>
+
+<p>When a user loads a package with library the namespace of that package gets put in position 2 of the search list (by default) and everything else gets shifted down the list.</p>
+
+<p>Note that R has separate namespaces for functions and non-functions so it’s possible to have an object named c and a function named c.</p>
+
+<h3>Scoping Rules</h3>
+
+<ul>
+<li>R uses lexical scoping or static scoping. A common alternative is dynamic scoping.</li>
+<li>Related to the scoping rules is how R uses the search list to bind a value to a symbol</li>
+<li>Lexical scoping turns out to be particularly useful for simplifying statistical computations</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'>f <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  x<span class="o">^</span><span class="m">2</span> <span class="o">+</span> y <span class="o">/</span> z
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this case &ldquo;z&rdquo; is called a <em>free variable</em>.</p>
+
+<p>Lexical scoping in R means that <em>the values of free variables are searched for in the environment in which the function was defined</em>.</p>
+
+<ul>
+<li>An environment is a collection of (symbol, value) pairs, i.e. x is a symbol and 3.14 might be its value.</li>
+<li>Every environment has a parent environment; it is possible for an environment to have multiple “children”</li>
+<li>The only environment without a parent is the empty environment</li>
+<li>A function + an environment = a <em>closure</em> or <em>function closure</em>.</li>
+</ul>
+
+
+<p>Searching for the value for a free variable:</p>
+
+<ul>
+<li>If the value of a symbol is not found in the environment in which a function was defined, then the search is continued in the parent environment.</li>
+<li>The search continues down the sequence of parent environments until we hit the top-level environment; this usually the global environment (workspace) or the namespace of a package.</li>
+<li>After the top-level environment, the search continues down the search list until we hit the emptyenvironment. If a value for a given symbol cannot be found once the empty environment is arrived at, then an error is thrown.</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'>make.power <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>n<span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  pow <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    x<span class="o">^</span>n
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  pow
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="o">&gt;</span> cube <span class="o">&lt;-</span> make.power<span class="p">(</span><span class="m">3</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> square <span class="o">&lt;-</span> make.power<span class="p">(</span><span class="m">2</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> cube<span class="p">(</span><span class="m">3</span><span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">27</span>
+</span><span class='line'><span class="o">&gt;</span> square<span class="p">(</span><span class="m">3</span><span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">9</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># What’s in a function’s environment?</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">ls</span><span class="p">(</span><span class="kp">environment</span><span class="p">(</span>cube<span class="p">))</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;n&quot;</span> <span class="s">&quot;pow&quot;</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">get</span><span class="p">(</span><span class="s">&quot;n&quot;</span><span class="p">,</span> <span class="kp">environment</span><span class="p">(</span>cube<span class="p">))</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Lexical vs. Dynamic Scoping</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'>y <span class="o">&lt;-</span> <span class="m">10</span> <span class="c1">## One variable y</span>
+</span><span class='line'>f <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  y <span class="o">&lt;-</span> <span class="m">2</span>  <span class="c1">## A second variable y !!</span>
+</span><span class='line'>  y<span class="o">^</span><span class="m">2</span> <span class="o">+</span> g<span class="p">(</span>x<span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>g <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  x<span class="o">*</span>y
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>With <em>lexical scoping</em> the value of y in the function g is looked up in the environment in which the function was defined, in this case the global environment, so the value of y is 10.</li>
+<li>With <em>dynamic scoping</em>, the value of y is looked up in the environment from which the function was called (sometimes referred to as the calling environment). So the value of y would be 2.</li>
+</ul>
+
+
+<h2>Date and Time</h2>
+
+<ul>
+<li>Dates are represented by the Date class</li>
+<li>Times are represented by the POSIXct or the POSIXlt class</li>
+<li>Dates are stored internally as the number of days since 1970-01-01</li>
+<li>Times are stored internally as the number of seconds since 1970-01-01</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="c1"># We can &quot;unclass&quot; a date and get the number of days since 1970-01-01</span>
+</span><span class='line'><span class="kp">unclass</span><span class="p">(</span><span class="kp">as.Date</span><span class="p">(</span><span class="s">&quot;1970-01-02&quot;</span><span class="p">))</span>
+</span><span class='line'><span class="c1">## [1] 1</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Time</h3>
+
+<ul>
+<li>POSIXct is just a very large integer under the hood; it use a useful class when you want to store times in something like a data frame</li>
+<li>POSIXlt is a list underneath and it stores a bunch of other useful information like the day of the week, day of the year, month, day of the month. If you subtract two dates represented with this class, you will get the number of days between those dates.</li>
+</ul>
+
+
+<p>There are a number of generic functions that work on dates and times</p>
+
+<ul>
+<li><em>weekdays</em>: give the day of the week</li>
+<li><em>months</em>: give the month name</li>
+<li><em>quarters</em>: give the quarter number (“Q1”, “Q2”, “Q3”, or “Q4”)</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'>x <span class="o">&lt;-</span> <span class="kp">Sys.time</span><span class="p">()</span>
+</span><span class='line'>x
+</span><span class='line'><span class="c1">## [1] &quot;2013-01-24 22:04:14 EST&quot;</span>
+</span><span class='line'>p <span class="o">&lt;-</span> <span class="kp">as.POSIXlt</span><span class="p">(</span>x<span class="p">)</span>
+</span><span class='line'><span class="kp">names</span><span class="p">(</span><span class="kp">unclass</span><span class="p">(</span>p<span class="p">))</span>
+</span><span class='line'><span class="c1">## [1] &quot;sec&quot; &quot;min&quot; &quot;hour&quot; &quot;mday&quot; &quot;mon&quot;</span>
+</span><span class='line'><span class="c1">## [6] &quot;year&quot; &quot;wday&quot; &quot;yday&quot; &quot;isdst&quot;</span>
+</span><span class='line'>p<span class="o">$</span>sec
+</span><span class='line'><span class="c1">## [1] 14.34</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There is the <em>strptime</em> function in case your dates are written in a different format</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'>datestring <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;January 10, 2012 10:40&quot;</span><span class="p">,</span> <span class="s">&quot;December 9, 2011 9:10&quot;</span><span class="p">)</span>
+</span><span class='line'>x <span class="o">&lt;-</span> <span class="kp">strptime</span><span class="p">(</span>datestring<span class="p">,</span> <span class="s">&quot;%B %d, %Y %H:%M&quot;</span><span class="p">)</span>
+</span><span class='line'>x
+</span><span class='line'><span class="c1">## [1] &quot;2012-01-10 10:40:00 EST&quot; &quot;2011-12-09 09:10:00 EST&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Check ?strptime for the formatting string options.</p>
+
+<h2>General functions</h2>
+
+<p>quantile(pack_sum$count, probs = 0.99)</p>
+
+<h2>dplyr</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'>result3 <span class="o">&lt;-</span>
+</span><span class='line'>  cran <span class="o">%&gt;%</span>
+</span><span class='line'>  group_by<span class="p">(</span>package<span class="p">)</span> <span class="o">%&gt;%</span>
+</span><span class='line'>  summarize<span class="p">(</span>count <span class="o">=</span> n<span class="p">(),</span>
+</span><span class='line'>            unique <span class="o">=</span> n_distinct<span class="p">(</span>ip_id<span class="p">),</span>
+</span><span class='line'>            countries <span class="o">=</span> n_distinct<span class="p">(</span>country<span class="p">),</span>
+</span><span class='line'>            avg_bytes <span class="o">=</span> <span class="kp">mean</span><span class="p">(</span>size<span class="p">)</span>
+</span><span class='line'>  <span class="p">)</span> <span class="o">%&gt;%</span>
+</span><span class='line'>  filter<span class="p">(</span>countries <span class="o">&gt;</span> <span class="m">60</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span><span class='line'>  arrange<span class="p">(</span>desc<span class="p">(</span>countries<span class="p">),</span> avg_bytes<span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Print result to console</span>
+</span><span class='line'><span class="kp">print</span><span class="p">(</span>result3<span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Summarize data</h2>
+
+<p>head(x, n = 6L)
+tail(x, n = 6L)
+summary(object)
+str(object)
+quantile(x)
+table(x): Cross Tabulation and Table Creation
+colSums
+rowSums
+xtabs(Freq ~ Gender + Admit, data = DF): Builds a cross table with gender distinct values as rows, Admit distinct values as columns and the frequency as content of the table.
+ftable(xtab): A more readable presentation of the cross tab when there is more than 2 dimensions required to show the data.
+print( x, units=&ldquo;Mb&rdquo;)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="c1"># Count positive values in every column</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">colSums</span><span class="p">(</span>df<span class="o">&gt;</span><span class="m">0</span><span class="p">)</span>
+</span><span class='line'>col1 col2
+</span><span class='line'>   <span class="m">4</span>   <span class="m">10</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Check existence</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="c1"># Check if there is at least one NA</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">any</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>df<span class="o">$</span>col1<span class="p">))</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">FALSE</span>
+</span><span class='line'><span class="c1"># Check if col2 is always positive</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">all</span><span class="p">(</span>df<span class="o">$</span>col2 <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">TRUE</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Check if all values in the data frame are not NA</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="kp">all</span><span class="p">(</span><span class="kp">colSums</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>df<span class="p">))</span><span class="o">==</span><span class="m">0</span><span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">TRUE</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Application</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='R'><span class='line'><span class="kn">library</span><span class="p">(</span>httr<span class="p">)</span>
+</span><span class='line'><span class="kn">library</span><span class="p">(</span>httuv<span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># 1. Find OAuth settings for github:</span>
+</span><span class='line'><span class="c1">#    http://developer.github.com/v3/oauth/</span>
+</span><span class='line'>oauth_endpoints<span class="p">(</span><span class="s">&quot;github&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># 2. Register an application at https://github.com/settings/applications;</span>
+</span><span class='line'><span class="c1">#    Use any URL you would like for the homepage URL (http://github.com is fine)</span>
+</span><span class='line'><span class="c1">#    and http://localhost:1410 as the callback url</span>
+</span><span class='line'><span class="c1">#</span>
+</span><span class='line'><span class="c1">#    Insert your client ID and secret below - if secret is omitted, it will</span>
+</span><span class='line'><span class="c1">#    look it up in the GITHUB_CONSUMER_SECRET environmental variable.</span>
+</span><span class='line'>myapp <span class="o">&lt;-</span> oauth_app<span class="p">(</span><span class="s">&quot;github&quot;</span><span class="p">,</span> <span class="s">&quot;56b637a5baffac62cad9&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># 3. Get OAuth credentials</span>
+</span><span class='line'>github_token <span class="o">&lt;-</span> oauth2.0_token<span class="p">(</span>oauth_endpoints<span class="p">(</span><span class="s">&quot;github&quot;</span><span class="p">),</span> myapp<span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># 4. Use API</span>
+</span><span class='line'>gtoken <span class="o">&lt;-</span> config<span class="p">(</span>token <span class="o">=</span> github_token<span class="p">)</span>
+</span><span class='line'>req <span class="o">&lt;-</span> with_config<span class="p">(</span>gtoken<span class="p">,</span> GET<span class="p">(</span><span class="s">&quot;https://api.github.com/rate_limit&quot;</span><span class="p">))</span>
+</span><span class='line'>stop_for_status<span class="p">(</span>req<span class="p">)</span>
+</span><span class='line'>content<span class="p">(</span>req<span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
   
     <footer>
